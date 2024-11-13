@@ -5,10 +5,12 @@ import { isISODateString } from '@/shared/utils'
 
 import { isPriceRangeString } from './purchase.lib'
 
-const purchaseFrequencyByPriceRangeRequestQuery = z.object({
-  from: z.string().refine(isISODateString).optional(),
-  to: z.string().refine(isISODateString).optional(),
-})
+const purchaseFrequencyByPriceRangeRequestQuery = z
+  .object({
+    from: z.string().refine(isISODateString),
+    to: z.string().refine(isISODateString),
+  })
+  .nullable()
 
 const purchaseFrequencyByPriceRangeResponseSchema = z
   .object({
