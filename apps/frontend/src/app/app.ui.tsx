@@ -7,7 +7,7 @@ import './app.style.css'
 const App: React.FC = () => {
   return (
     <>
-      <h1 className="text-teal-500">jada-gwon/datarize-fe-assignments</h1>
+      <h1 className="flex p-4 text-teal-500">jada-gwon/datarize-fe-assignments</h1>
       <RouterProvider router={router} />
     </>
   )
