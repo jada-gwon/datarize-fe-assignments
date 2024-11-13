@@ -1,5 +1,5 @@
-import { PurchaseFrequencyChartProps } from './purchase-frequency-chart.type'
 import usePurchaseFrequencyChartModel from './purchase-frequency-chart.model'
+import { PurchaseFrequencyChartProps } from './purchase-frequency-chart.type'
 
 const PurchaseFrequencyChart: React.FC<PurchaseFrequencyChartProps> = ({ period }) => {
   const { data } = usePurchaseFrequencyChartModel({ period })

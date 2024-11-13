@@ -1,9 +1,9 @@
 import { useSuspenseQuery } from '@tanstack/react-query'
 
 import { purchaseQueries } from '@/entities/purchase'
+import { timestampToISODate } from '@/shared/utils'
 
 import { PurchaseFrequencyChartProps } from './purchase-frequency-chart.type'
-import { timestampToISODate } from '@/shared/utils'
 
 function usePurchaseFrequencyChartModel({ period }: PurchaseFrequencyChartProps) {
   const chartPeriodFrom = period.from != null ? timestampToISODate(period.from) : undefined

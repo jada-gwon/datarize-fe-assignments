@@ -1,9 +1,9 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 
-import { PATH } from '@/shared/router'
-import { PurchaseStatisticsPage } from '@/pages/purchase-statistics'
-import { CustomerList } from '@/pages/customer-list'
 import { CustomerDetail } from '@/pages/customer-detail'
+import { CustomerList } from '@/pages/customer-list'
+import { PurchaseStatisticsPage } from '@/pages/purchase-statistics'
+import { PATH } from '@/shared/router'
 
 import AppLayout from './app.layout'
 
