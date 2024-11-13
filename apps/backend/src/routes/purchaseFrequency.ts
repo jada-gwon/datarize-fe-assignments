@@ -8,9 +8,10 @@ router.get('/api/purchase-frequency', async (ctx) => {
     // Suspense 테스트를 위해 3초 지연
     // const now = Date.now()
     // while (Date.now() < now + 3000) {}
-    // if (Math.random() <= 1) {
-    //   throw new Error('Intentional error occurred')
-    // }
+
+    if (Math.random() <= 1) {
+      throw new Error('Intentional error occurred')
+    }
 
     const { from, to } = ctx.query
 
