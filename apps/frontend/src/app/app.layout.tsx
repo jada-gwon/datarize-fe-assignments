@@ -5,7 +5,7 @@ import { PATH } from '@/shared/router'
 const AppLayout: React.FC = () => {
   return (
     <>
-      <aside className="fixed h-screen w-48 bg-zinc-100 px-4 py-6">
+      <aside className="fixed h-screen w-48 border-r border-slate-200 bg-slate-50 px-4 py-6">
         <nav>
           <ul className="-my-1.5">
             <li>

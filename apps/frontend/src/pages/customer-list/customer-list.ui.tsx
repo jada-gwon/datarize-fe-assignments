@@ -3,7 +3,7 @@ import { Suspense, useDeferredValue, useState } from 'react'
 import { CustomerList } from '@/features/customer-list'
 import { PageErrorBoundary } from '@/shared/ui/page-error-boundary'
 
-import iconSearch from './icon-search.svg'
+import IconSearch from './icon-search.svg?react'
 
 const CustomerListPage: React.FC = () => {
   const [searchKeyword, setSearchKeyword] = useState('')
@@ -16,18 +16,22 @@ const CustomerListPage: React.FC = () => {
         </div>
         <div>
           <div className="relative">
-            <img src={iconSearch} className="absolute left-2 top-1/2 -translate-y-1/2" />
+            <span className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-500">
+              <IconSearch />
+            </span>
             <input
               type="text"
-              className="block w-full rounded-full border border-zinc-300 px-9 py-1"
+              className="block w-full rounded-full border border-zinc-300 py-1.5 pl-10 pr-4"
               value={searchKeyword}
               onChange={(e) => setSearchKeyword(e.target.value.trim())}
             />
           </div>
         </div>
-        <Suspense fallback={<p>로딩 중</p>}>
-          <CustomerList searchKeyword={deferredSearchKeyword}></CustomerList>
-        </Suspense>
+        <div className="mt-6">
+          <Suspense fallback={<p>로딩 중</p>}>
+            <CustomerList searchKeyword={deferredSearchKeyword}></CustomerList>
+          </Suspense>
+        </div>
       </PageErrorBoundary>
     </main>
   )
