@@ -10,9 +10,9 @@ const queryKeys = {
   purchaseList: (customerId: number) => [...queryKeys.purchaseLists(), { customerId }],
 }
 
-export const customerList = (query: { sortBy?: CustomerListRequestQuery['sortBy']; name?: string }) =>
+export const customerList = (query: { sortBy: CustomerListRequestQuery['sortBy']; name?: string }) =>
   queryOptions({
-    queryKey: queryKeys.list(query.sortBy ?? 'desc', query.name ?? ''),
+    queryKey: queryKeys.list(query.sortBy, query.name ?? ''),
     queryFn: () => getCustomerList(query),
   })
 

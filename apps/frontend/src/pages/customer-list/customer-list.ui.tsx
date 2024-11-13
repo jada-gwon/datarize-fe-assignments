@@ -1,13 +1,19 @@
+import clsx from 'clsx'
 import { Suspense, useDeferredValue, useState } from 'react'
 
-import { CustomerList } from '@/features/customer-list'
+import { CustomerList, CustomerListFallback } from '@/features/customer-list'
 import { PageErrorBoundary } from '@/shared/ui/page-error-boundary'
 
+import IconArrowDown from './icon-arrow-down.svg?react'
 import IconSearch from './icon-search.svg?react'
 
 const CustomerListPage: React.FC = () => {
   const [searchKeyword, setSearchKeyword] = useState('')
+  const [sortBy, setSortBy] = useState<'' | 'asc' | 'desc'>('')
   const deferredSearchKeyword = useDeferredValue(searchKeyword)
+
+  const toggleSortBy = () => setSortBy(sortBy === 'desc' ? 'asc' : 'desc')
+
   return (
     <main>
       <PageErrorBoundary>
@@ -28,9 +34,38 @@ const CustomerListPage: React.FC = () => {
           </div>
         </div>
         <div className="mt-6">
-          <Suspense fallback={<p>로딩 중</p>}>
-            <CustomerList searchKeyword={deferredSearchKeyword}></CustomerList>
-          </Suspense>
+          <div className="overflow-hidden rounded-xl border border-slate-200">
+            <table className="w-full">
+              <colgroup>
+                <col style={{ width: '8ch' }}></col>
+                <col></col>
+                <col style={{ width: '8ch' }}></col>
+                <col style={{ width: '160px' }}></col>
+              </colgroup>
+              <thead className="h-12 border-b border-slate-200 bg-slate-50">
+                <tr>
+                  <th>ID</th>
+                  <th className="text-left">이름</th>
+                  <th>구매 횟수</th>
+                  <th className="cursor-pointer pr-4" onClick={toggleSortBy}>
+                    총 구매 금액
+                    <span
+                      className={clsx(
+                        'inline-block align-bottom',
+                        { 'rotate-180': sortBy === 'asc' },
+                        { invisible: !sortBy },
+                      )}
+                    >
+                      <IconArrowDown />
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <Suspense fallback={<CustomerListFallback />}>
+                <CustomerList searchKeyword={deferredSearchKeyword} sortBy={sortBy}></CustomerList>
+              </Suspense>
+            </table>
+          </div>
         </div>
       </PageErrorBoundary>
     </main>

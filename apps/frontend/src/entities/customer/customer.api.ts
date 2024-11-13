@@ -7,7 +7,7 @@ import { requestApi } from '@/shared/requestUtils'
  * 주문 고객 목록 조회
  */
 const customerListRequestQuery = z.object({
-  sortBy: z.enum(['asc', 'desc']).optional(),
+  sortBy: z.enum(['', 'asc', 'desc']),
   name: z.string().optional(),
 })
 const customerListResponseSchema = z
