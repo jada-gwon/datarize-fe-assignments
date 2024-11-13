@@ -5,10 +5,12 @@ import { PurchaseStatistics } from '@/pages/purchase-statistics'
 import { CustomerList } from '@/pages/customer-list'
 import { CustomerDetail } from '@/pages/customer-detail'
 
+import AppLayout from './app.layout'
+
 const router = createBrowserRouter([
   {
     path: PATH.root,
-    element: null,
+    element: <AppLayout />,
     children: [
       {
         index: true,

@@ -1,16 +1,25 @@
 import { RouterProvider } from 'react-router-dom'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import router from './app.router'
 
-import './app.style.css'
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity,
+      retry: false,
+      refetchOnMount: false,
+    },
+  },
+})
 
-const App: React.FC = () => {
+export default function App() {
   return (
     <>
       <h1 className="flex p-4 text-teal-500">jada-gwon/datarize-fe-assignments</h1>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </>
   )
 }
-
-export default App
