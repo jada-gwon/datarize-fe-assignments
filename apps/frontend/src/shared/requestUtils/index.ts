@@ -1,4 +1,4 @@
-import axios, { isAxiosError } from 'axios'
+import axios from 'axios'
 import qs from 'qs'
 import { ZodType } from 'zod'
 
@@ -32,19 +32,8 @@ export async function requestApi<TResponseData>(config: ApiConfig<TResponseData>
       return result.data!
     }
     console.error(`API 응답 파싱 실패:`, result.error.format())
-    return Promise.reject({
-      code: null,
-      message: 'API 응답 파싱 실패',
-    })
+    return Promise.reject(new Error('API 응답 파싱 실패'))
   } catch (error) {
-    const unknownError = {
-      code: null,
-      message: 'Unknown api error',
-    }
-    if (isAxiosError(error)) {
-      const errorData = error.response?.data.errors ?? unknownError
-      return Promise.reject(errorData)
-    }
-    return Promise.reject(unknownError)
+    return Promise.reject(error)
   }
 }

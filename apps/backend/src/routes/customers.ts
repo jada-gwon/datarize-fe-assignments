@@ -7,8 +7,8 @@ const router = new Router()
 router.get('/', async (ctx) => {
   try {
     // Suspense 테스트를 위해 3초 지연
-    const now = Date.now()
-    while (Date.now() < now + 3000) {}
+    // const now = Date.now()
+    // while (Date.now() < now + 3000) {}
 
     const { sortBy, name } = ctx.query
     const purchases = await getPurchases()

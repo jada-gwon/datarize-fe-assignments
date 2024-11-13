@@ -1,3 +1,4 @@
+import { isAxiosError } from 'axios'
 import z from 'zod'
 
 import { requestApi } from '@/shared/requestUtils'
@@ -21,15 +22,23 @@ const customerListResponseSchema = z
 export type CustomerListRequestQuery = z.infer<typeof customerListRequestQuery>
 export type CustomerListResponseSchema = z.infer<typeof customerListResponseSchema>
 
-export const getCustomerList = (query: CustomerListRequestQuery) => {
-  return requestApi({
-    request: {
-      method: 'GET',
-      url: '/api/customers',
-      query,
-    },
-    response: { schema: customerListResponseSchema },
-  })
+export const getCustomerList = async (query: CustomerListRequestQuery) => {
+  try {
+    return await requestApi({
+      request: {
+        method: 'GET',
+        url: '/api/customers',
+        query,
+      },
+      response: { schema: customerListResponseSchema },
+    })
+  } catch (error) {
+    // 일치하는 키워드가 없는 경우 빈 배열 리턴
+    if (isAxiosError(error) && error.response?.status === 404) {
+      return []
+    }
+    throw error
+  }
 }
 
 /**
