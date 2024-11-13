@@ -11,17 +11,17 @@ const CustomerDetailPage: React.FC = () => {
   const navigate = useNavigate()
   return (
     <main>
-      <div className="mb-10">
-        <h1 className="text-2xl font-bold">
-          <button className="size-8 align-bottom" onClick={() => navigate(-1)}>
-            <span>
-              <IconAngleLeft />
-            </span>
-          </button>
-          #{customerId}
-        </h1>
-      </div>
       <PageErrorBoundary>
+        <div className="mb-10">
+          <h1 className="text-2xl font-bold">
+            <button className="size-8 align-bottom" onClick={() => navigate(-1)}>
+              <span>
+                <IconAngleLeft />
+              </span>
+            </button>
+            #{customerId}
+          </h1>
+        </div>
         <Suspense fallback={<p>로딩 중</p>}>
           <CustomerPurchaseHistory customerId={parseInt(customerId!)} />
         </Suspense>
