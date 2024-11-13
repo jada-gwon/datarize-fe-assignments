@@ -16,7 +16,7 @@ export const customerList = (query: { sortBy?: CustomerListRequestQuery['sortBy'
     queryFn: () => getCustomerList(query),
   })
 
-export const customerPurchaseList = (customerId: number) =>
+export const customerPurchaseHistory = (customerId: number) =>
   queryOptions({
     queryKey: queryKeys.purchaseList(customerId),
     queryFn: () => getCustomerPurchaseList(customerId),

@@ -12,7 +12,7 @@ const CustomerListPage: React.FC = () => {
     <main>
       <PageErrorBoundary>
         <div className="mb-10">
-          <h1 className="text-xl">구매 고객 목록</h1>
+          <h1 className="text-2xl font-bold">구매 고객 목록</h1>
         </div>
         <div>
           <div className="relative">
