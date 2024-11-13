@@ -10,11 +10,9 @@ const PurchaseStatisticsPage: React.FC = () => {
   return (
     <main>
       <PageErrorBoundary>
-        <ul>
-          <Suspense fallback={<p>로딩 중</p>}>
-            <PurchaseFrequencyChart period={data.chartPeriod} />
-          </Suspense>
-        </ul>
+        <Suspense fallback={<p>로딩 중</p>}>
+          <PurchaseFrequencyChart period={data.chartPeriod} />
+        </Suspense>
       </PageErrorBoundary>
     </main>
   )
