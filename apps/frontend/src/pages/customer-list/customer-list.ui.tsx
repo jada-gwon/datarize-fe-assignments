@@ -1,11 +1,15 @@
-const CustomerList: React.FC = () => {
+import { Suspense } from 'react'
+
+import { CustomerList } from '@/features/customer-list'
+
+const CustomerListPage: React.FC = () => {
   return (
-    <>
-      <main>
-        <h1>customer-list</h1>
-      </main>
-    </>
+    <main>
+      <Suspense fallback={<p>로딩 중</p>}>
+        <CustomerList searchKeyword=""></CustomerList>
+      </Suspense>
+    </main>
   )
 }
 
-export default CustomerList
+export default CustomerListPage

@@ -1,5 +1,6 @@
 import { Suspense } from 'react'
-import { PurchaseFrequencyChart } from 'src/features/purchase-frequency-chart'
+
+import { PurchaseFrequencyChart } from '@/features/purchase-frequency-chart'
 
 import usePurchaseStatisticsModel from './purchase-statistics.model'
 

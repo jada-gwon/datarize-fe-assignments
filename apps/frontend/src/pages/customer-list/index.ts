@@ -1,1 +1,1 @@
-export { default as CustomerList } from './customer-list.ui'
+export { default as CustomerListPage } from './customer-list.ui'

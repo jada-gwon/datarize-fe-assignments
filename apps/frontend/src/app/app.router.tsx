@@ -1,7 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 
-import { CustomerDetail } from '@/pages/customer-detail'
-import { CustomerList } from '@/pages/customer-list'
+import { CustomerDetailPage } from '@/pages/customer-detail'
+import { CustomerListPage } from '@/pages/customer-list'
 import { PurchaseStatisticsPage } from '@/pages/purchase-statistics'
 import { PATH } from '@/shared/router'
 
@@ -22,11 +22,11 @@ const router = createBrowserRouter([
       },
       {
         path: PATH.customer.list.path(),
-        element: <CustomerList />,
+        element: <CustomerListPage />,
       },
       {
         path: PATH.customer.detail.path(),
-        element: <CustomerDetail />,
+        element: <CustomerDetailPage />,
       },
     ],
   },

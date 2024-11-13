@@ -8,14 +8,14 @@ export const PATH = {
     },
   },
   customer: {
-    root: '/customer' as const,
+    root: '/customers' as const,
     list: {
       path: () => ''.concat(PATH.customer.root),
       getUrl: () => ''.concat(PATH.customer.root),
     },
     detail: {
       path: () => ''.concat(PATH.customer.root, `/:customerId`),
-      getUrl: (params: { customerId: string }) => ''.concat(PATH.customer.root, `/${params.customerId}`),
+      getUrl: (customerId: number) => ''.concat(PATH.customer.root, `/${customerId}`),
     },
   },
 }

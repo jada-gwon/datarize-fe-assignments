@@ -14,6 +14,7 @@ module.exports = {
   rules: {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'import/no-unresolved': ['off'],
+    'import/no-named-as-default-member': ['off'],
     'import/order': [
       'error',
       {

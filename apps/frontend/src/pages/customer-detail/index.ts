@@ -1,1 +1,1 @@
-export { default as CustomerDetail } from './customer-detail.ui'
+export { default as CustomerDetailPage } from './customer-detail.ui'
