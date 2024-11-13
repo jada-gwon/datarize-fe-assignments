@@ -1,10 +1,6 @@
-import { QueryErrorResetBoundary } from '@tanstack/react-query'
-import { ErrorBoundary } from 'react-error-boundary'
 import { Link, Outlet } from 'react-router-dom'
 
 import { PATH } from '@/shared/router'
-
-import './app.style.css'
 
 const AppLayout: React.FC = () => {
   return (
@@ -27,23 +23,7 @@ const AppLayout: React.FC = () => {
       </aside>
       <div className="pl-48">
         <div className="container px-12 py-6">
-          <QueryErrorResetBoundary>
-            {({ reset }) => (
-              <ErrorBoundary
-                onReset={reset}
-                fallbackRender={({ resetErrorBoundary }) => (
-                  <div className="text-center">
-                    <p className="mb-6 mt-72 text-lg">😢 페이지를 불러오는 도중 문제가 발생하였습니다.</p>
-                    <button className="rounded-sm bg-blue-500 px-3 py-1 text-white" onClick={resetErrorBoundary}>
-                      재시도
-                    </button>
-                  </div>
-                )}
-              >
-                <Outlet />
-              </ErrorBoundary>
-            )}
-          </QueryErrorResetBoundary>
+          <Outlet />
         </div>
       </div>
     </>
