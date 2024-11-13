@@ -1,7 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 
 import { PATH } from '@/shared/router'
-import { PurchaseStatistics } from '@/pages/purchase-statistics'
+import { PurchaseStatisticsPage } from '@/pages/purchase-statistics'
 import { CustomerList } from '@/pages/customer-list'
 import { CustomerDetail } from '@/pages/customer-detail'
 
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
       },
       {
         path: PATH.statistics.purchase.path(),
-        element: <PurchaseStatistics />,
+        element: <PurchaseStatisticsPage />,
       },
       {
         path: PATH.customer.list.path(),

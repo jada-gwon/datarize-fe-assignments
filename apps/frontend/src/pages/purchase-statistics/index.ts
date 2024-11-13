@@ -1,1 +1,1 @@
-export { default as PurchaseStatistics } from './purchase-statistics.ui'
+export { default as PurchaseStatisticsPage } from './purchase-statistics.ui'
